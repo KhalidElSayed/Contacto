@@ -31,7 +31,7 @@ public class addcontact extends Activity {
 		actionbar.setDisplayHomeAsUpEnabled(true);
 		actionbar.setTitle("Add Contact");
 		
-		if(!checkconnection.checkInternetConnection(this)){
+		if(checkconnection.checkInternetConnection(this)){
 			Button done = (Button) findViewById(R.id.done);
 			
 			done.setOnClickListener(new View.OnClickListener() {

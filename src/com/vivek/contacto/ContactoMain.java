@@ -20,7 +20,7 @@ public class ContactoMain extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contacto_main);
-		if(!checkconnection.checkInternetConnection(this))
+		if(checkconnection.checkInternetConnection(this))
 		{
 			TextView demo = (TextView)findViewById(R.id.listingcontact);
 			demo.setOnClickListener(new View.OnClickListener() {
