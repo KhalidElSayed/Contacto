@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Contacto</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="hint_fname">First name ...</string>
+    <string name="hint_lname">Last name ...</string>
+    <string name="hint_mobileno">Mobile number ...</string>
+    <string name="hint_homeno">Home number ...</string>
+    <string name="hint_officeno">Office number ...</string>
+    <string name="done">Done</string>
+    
+    <string name="mobile">MOBILE</string>
+    <string name="home">HOME</string>
+    <string name="office">OFFICE</string>
+    
+
+</resources>

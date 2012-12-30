@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/back_color">
+
+    <RelativeLayout 
+        android:id="@+id/MobileLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp">
+
+        <ImageView
+            android:id="@+id/mobilelogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/mobilelogo">
+           
+            <TextView 
+                android:id="@+id/mobTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mobile"
+                android:textColor="@color/lightgreen"
+                android:textSize="20sp"/>
+            <View
+                android:id="@+id/mobline"
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:background="@color/green"
+				android:layout_below="@+id/mobTV" />
+
+           <TextView 
+                android:id="@+id/INDIVIDUAL_mobnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mobline"
+                android:layout_marginTop="5dp"
+                android:text="+977 9841231975"
+                android:textColor="@color/dim_black"
+                android:textSize="25sp"/>
+            
+        </RelativeLayout>
+      </RelativeLayout>
+        
+        <!-- Home layout starts here -->
+        
+        <RelativeLayout 
+        android:id="@+id/HomeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/MobileLayout">
+
+        <ImageView
+            android:id="@+id/homelogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/homelogo">
+           
+            <TextView 
+                android:id="@+id/homeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:textColor="@color/lightgreen"
+                android:textSize="20sp"/>
+              <View
+                android:id="@+id/homeline"
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:background="@color/green"
+				android:layout_below="@+id/homeTV" />
+
+           <TextView 
+                android:id="@+id/INDIVIDUAL_homenum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/homeline"
+                android:text="+977 1 4356787"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/dim_black"
+                android:textSize="25sp"/>
+            
+        </RelativeLayout>
+        
+    </RelativeLayout>
+        
+      <!-- office layout starts here -->
+        
+        <RelativeLayout 
+        android:id="@+id/officeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/HomeLayout">
+
+        <ImageView
+            android:id="@+id/officelogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/officelogo">
+           
+            <TextView 
+                android:id="@+id/officeTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/office"
+                android:textColor="@color/lightgreen"
+                android:textSize="20sp"/>
+             <View
+                android:id="@+id/officeline"
+				android:layout_width="fill_parent"
+				android:layout_height="1dp"
+				android:background="@color/green"
+				android:layout_below="@+id/officeTV" />
+
+           <TextView 
+                android:id="@+id/INDIVIDUAL_officenum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/officeline"
+                android:text="+977 1 5568827"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/dim_black"
+                android:textSize="25sp"/>
+            
+        </RelativeLayout>
+        
+    </RelativeLayout>
+
+</RelativeLayout>

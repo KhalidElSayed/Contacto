@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_color"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/AD_fname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/hint_fname"
+        android:background="@drawable/edittextdesign"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:inputType="textPersonName" />
+    
+    <EditText
+        android:id="@+id/AD_lname"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AD_fname"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/hint_lname"
+        android:background="@drawable/edittextdesign"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"/>
+     
+    <EditText
+        android:id="@+id/AD_Mobileno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AD_lname"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/hint_mobileno"
+        android:background="@drawable/edittextdesign"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:inputType="phone"/>
+   
+    
+     
+    <EditText
+        android:id="@+id/AD_Homeno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AD_Mobileno"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/hint_homeno"
+        android:background="@drawable/edittextdesign"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp" 
+        android:inputType="phone"/>
+      
+     
+    <EditText
+        android:id="@+id/AD_Officeno"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AD_Homeno"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="@string/hint_officeno"
+        android:background="@drawable/edittextdesign"
+        android:textSize="15sp"
+        android:textColor="@color/Black"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:inputType="phone"/>
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AD_Officeno"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:background="@color/green"
+        android:textScaleX="1"
+        android:textSize="30sp"
+        android:gravity="left|center_vertical"
+        android:text="@string/done" 
+        android:paddingLeft="20dp"/>
+
+</RelativeLayout>

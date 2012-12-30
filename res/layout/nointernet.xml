@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back_color" >
+    <RelativeLayout 
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp">
+	    <TextView 
+	        android:id="@+id/tv"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Sorry, No Internet Connection Found!!!"
+	        android:textColor="@color/Black"/>
+	    
+	    <Button 
+	        android:id="@+id/dismiss"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="DISMISS"
+	        android:background="@color/green"
+	        android:gravity="left|center_vertical"
+	        android:paddingLeft="20dp"
+	        android:textSize="20dp"
+	        android:layout_below="@+id/tv"
+	        android:layout_marginTop="10dp"
+	        android:textColor="@color/white"/>
+    </RelativeLayout>
+
+</RelativeLayout>
