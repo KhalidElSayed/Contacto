@@ -1,22 +1,31 @@
 package com.vivek.contacto;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.vivek.contacto.library.UserFunctions;
 import com.vivek.contacto.library.checkconnection;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class individual_list extends Activity {
 
+	String fname,lname,mobile,home,office,id;
+	TextView hn, mn, on;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -24,9 +33,41 @@ public class individual_list extends Activity {
 		setContentView(R.layout.individual);
 		ActionBar actionbar = getActionBar();
 		actionbar.setDisplayHomeAsUpEnabled(true);
-		actionbar.setTitle("Vivek Bhusal");
+		actionbar.setTitle(" ");
+		hn= (TextView)findViewById(R.id.INDIVIDUAL_homenum);
+		mn= (TextView)findViewById(R.id.INDIVIDUAL_mobnum);
+		on= (TextView)findViewById(R.id.INDIVIDUAL_officenum);
 
-		if(!checkconnection.checkInternetConnection(this)){
+		if(checkconnection.checkInternetConnection(this)){
+			Intent intent = getIntent();
+			if(intent!=null){
+				if(intent.getStringExtra("fname")!=null){
+					fname = intent.getStringExtra("fname");
+					if(intent.getStringExtra("lname")!=null){
+						lname = intent.getStringExtra("lname");
+						actionbar.setTitle(fname+" "+lname);
+					}else{
+						actionbar.setTitle(fname);
+					}
+				}
+				if(intent.getStringExtra("nhome")!=null){
+					home = intent.getStringExtra("nhome");
+				}
+				if(intent.getStringExtra("n_mobile")!=null){
+					mobile = intent.getStringExtra("n_mobile");
+				}
+				if(intent.getStringExtra("n_office")!=null){
+					office = intent.getStringExtra("n_office");
+				}
+				id=intent.getStringExtra("id");
+				hn.setText(home);
+				mn.setText(mobile);
+				on.setText(office);
+			
+				
+			}
+			
+		}else{
 			final Dialog dialog = new Dialog(individual_list.this);
 			 dialog.setContentView(R.layout.nointernet);
 			 dialog.setTitle("Alert!!!");
@@ -61,9 +102,11 @@ public class individual_list extends Activity {
 		case android.R.id.home:
 			Intent intent = new Intent(individual_list.this, ContactoMain.class);
 			startActivity(intent);
+			finish();
 			return true;
 		case R.id.deleteitme:
-			Toast.makeText(getApplicationContext(), "item will be deleted", Toast.LENGTH_SHORT).show();
+			AsyncConnection connection = new AsyncConnection();
+			connection.execute();
 			return true;
 		
 		case R.id.edititme:
@@ -78,5 +121,28 @@ public class individual_list extends Activity {
 		
 	}
 	
+	private class AsyncConnection extends AsyncTask<Void, Void, Void>{
+		String res;
+		@Override
+		protected Void doInBackground(Void... arg0) {
+			UserFunctions user = new UserFunctions();
+			JSONObject jsob = user.deletecontact(id);
+			try {
+				res = jsob.getString("res");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+		@Override
+		protected void onPostExecute(Void result) {
+			Toast.makeText(getApplicationContext(),res+" Deleting", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(individual_list.this, ContactoMain.class);
+			startActivity(intent);
+			
+		}
+		
+	}
 
 }

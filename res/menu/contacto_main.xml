@@ -4,7 +4,7 @@
         android:id="@+id/additem"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/add_icon"
         android:title="@string/menu_settings"/>
 
 </menu>

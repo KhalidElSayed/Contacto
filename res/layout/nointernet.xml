@@ -4,30 +4,34 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/back_color" >
-    <RelativeLayout 
+
+    <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:gravity="center"
-        android:padding="10dp">
-	    <TextView 
-	        android:id="@+id/tv"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="Sorry, No Internet Connection Found!!!"
-	        android:textColor="@color/Black"/>
-	    
-	    <Button 
-	        android:id="@+id/dismiss"
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:text="DISMISS"
-	        android:background="@color/green"
-	        android:gravity="left|center_vertical"
-	        android:paddingLeft="20dp"
-	        android:textSize="20dp"
-	        android:layout_below="@+id/tv"
-	        android:layout_marginTop="10dp"
-	        android:textColor="@color/white"/>
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Sorry, No Internet Connection Found!!!"
+            android:textColor="@color/Black" />
+
+        <Button
+            android:id="@+id/dismiss"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:layout_marginTop="10dp"
+            android:background="@color/green"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="20dp"
+            android:text="DISMISS"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -72,8 +72,6 @@ public class addcontact extends Activity {
 		
 	}
 	
-
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch(item.getItemId())
@@ -82,6 +80,7 @@ public class addcontact extends Activity {
 			Intent intent = new Intent(this, ContactoMain.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
             return true;
        
         default:
@@ -105,7 +104,6 @@ public class addcontact extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
-			
 			return null;
 		}
 		@Override
@@ -115,6 +113,7 @@ public class addcontact extends Activity {
 			Intent intent = new Intent(addcontact.this, ContactoMain.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+            finish();
 		}
 		
 		

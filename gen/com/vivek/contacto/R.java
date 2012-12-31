@@ -21,8 +21,14 @@ public final class R {
         public static final int white=0x7f040002;
     }
     public static final class drawable {
-        public static final int edittextdesign=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int add_icon=0x7f020000;
+        public static final int appicon_actionbar=0x7f020001;
+        public static final int edittextdesign=0x7f020002;
+        public static final int home_icon=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int mobile_icon=0x7f020005;
+        public static final int office_icon=0x7f020006;
+        public static final int splashscreen_icon=0x7f020007;
     }
     public static final class id {
         public static final int AD_Homeno=0x7f080003;
@@ -35,16 +41,18 @@ public final class R {
         public static final int INDIVIDUAL_mobnum=0x7f08000b;
         public static final int INDIVIDUAL_officenum=0x7f080015;
         public static final int MobileLayout=0x7f080007;
-        public static final int additem=0x7f080019;
-        public static final int deleteitme=0x7f08001b;
-        public static final int dismiss=0x7f080017;
+        public static final int additem=0x7f08001b;
+        public static final int deleteitme=0x7f08001d;
+        public static final int dismiss=0x7f080019;
         public static final int done=0x7f080005;
-        public static final int edititme=0x7f08001a;
+        public static final int edititme=0x7f08001c;
+        public static final int fnamelist=0x7f080016;
         public static final int homeTV=0x7f08000e;
         public static final int homeline=0x7f08000f;
         public static final int homelogo=0x7f08000d;
-        public static final int imageView1=0x7f080018;
-        public static final int listingcontact=0x7f080006;
+        public static final int imageView1=0x7f08001a;
+        public static final int list=0x7f080006;
+        public static final int lnamelist=0x7f080017;
         public static final int mobTV=0x7f080009;
         public static final int mobilelogo=0x7f080008;
         public static final int mobline=0x7f08000a;
@@ -52,14 +60,15 @@ public final class R {
         public static final int officeTV=0x7f080013;
         public static final int officeline=0x7f080014;
         public static final int officelogo=0x7f080012;
-        public static final int tv=0x7f080016;
+        public static final int tv=0x7f080018;
     }
     public static final class layout {
         public static final int addcontact=0x7f030000;
         public static final int contacto_main=0x7f030001;
         public static final int individual=0x7f030002;
-        public static final int nointernet=0x7f030003;
-        public static final int splashscreen=0x7f030004;
+        public static final int listing=0x7f030003;
+        public static final int nointernet=0x7f030004;
+        public static final int splashscreen=0x7f030005;
     }
     public static final class menu {
         public static final int contacto_main=0x7f070000;
