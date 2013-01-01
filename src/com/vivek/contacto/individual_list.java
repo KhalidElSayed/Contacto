@@ -3,16 +3,12 @@ package com.vivek.contacto;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.vivek.contacto.library.UserFunctions;
-import com.vivek.contacto.library.checkconnection;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +17,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.vivek.contacto.library.UserFunctions;
+import com.vivek.contacto.library.checkconnection;
 
 public class individual_list extends Activity {
 
@@ -110,6 +109,15 @@ public class individual_list extends Activity {
 			return true;
 		
 		case R.id.edititme:
+			Intent edit_intent = new Intent(individual_list.this, addcontact.class);
+			edit_intent.putExtra("fname", fname);
+			edit_intent.putExtra("lname", lname);
+			edit_intent.putExtra("mobile", mobile);
+			edit_intent.putExtra("home", home);
+			edit_intent.putExtra("office", office);
+			edit_intent.putExtra("id", id);
+			startActivity(edit_intent);
+			
 			Toast.makeText(getApplicationContext(), "item needs to be edited", Toast.LENGTH_SHORT).show();
 			return true;
 			

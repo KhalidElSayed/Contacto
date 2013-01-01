@@ -22,6 +22,8 @@ import com.vivek.contacto.library.checkconnection;
 public class addcontact extends Activity {
 
 	EditText fname, lname, mobile, home, office;
+	String id;
+	String flag;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -32,18 +34,31 @@ public class addcontact extends Activity {
 		actionbar.setTitle("Add Contact");
 		
 		if(checkconnection.checkInternetConnection(this)){
+			fname = (EditText) findViewById(R.id.AD_fname);
+			lname = (EditText) findViewById(R.id.AD_lname);
+			mobile = (EditText) findViewById(R.id.AD_Mobileno);
+			home = (EditText) findViewById(R.id.AD_Homeno);
+			office = (EditText) findViewById(R.id.AD_Officeno);
+			
+			Intent intent = getIntent();
+			if(intent!=null){
+				fname.setText(intent.getStringExtra("fname"));
+				lname.setText(intent.getStringExtra("lname"));
+				mobile.setText(intent.getStringExtra("mobile"));
+				home.setText(intent.getStringExtra("home"));
+				office.setText(intent.getStringExtra("office"));
+				id = intent.getStringExtra("id");
+				
+				flag = "edit";
+				
+			}
 			Button done = (Button) findViewById(R.id.done);
 			
 			done.setOnClickListener(new View.OnClickListener() {
 			
 				@Override
 				public void onClick(View arg0) {
-					fname = (EditText) findViewById(R.id.AD_fname);
-					lname = (EditText) findViewById(R.id.AD_lname);
-					mobile = (EditText) findViewById(R.id.AD_Mobileno);
-					home = (EditText) findViewById(R.id.AD_Homeno);
-					office = (EditText) findViewById(R.id.AD_Officeno);
-					
+										
 					if(fname.getText().toString().length()<=0){
 						Toast.makeText(getApplicationContext(), "First Name Required", Toast.LENGTH_SHORT).show();
 					}else{
@@ -90,10 +105,16 @@ public class addcontact extends Activity {
 	
 	private class AsycConnection extends AsyncTask<Void, Void, Void>{
 		String result;
+		JSONObject JSob;
 		@Override
 		protected Void doInBackground(Void... params) {
 			UserFunctions user = new UserFunctions();
-			JSONObject JSob = user.addcontact(fname.getText().toString(), lname.getText().toString(), mobile.getText().toString(), home.getText().toString(), office.getText().toString());
+			if(flag.equalsIgnoreCase("edit")){
+				 JSob = user.editcontact(id, fname.getText().toString(), lname.getText().toString(), mobile.getText().toString(), home.getText().toString(), office.getText().toString());
+				
+			}else{
+				JSob = user.addcontact(fname.getText().toString(), lname.getText().toString(), mobile.getText().toString(), home.getText().toString(), office.getText().toString());
+			}
 			try {
 				if(JSob.getString("res")!=null){
 					result = JSob.getString("res");
@@ -104,6 +125,8 @@ public class addcontact extends Activity {
 			} catch (JSONException e) {
 				e.printStackTrace();
 			}
+			
+			
 			return null;
 		}
 		@Override

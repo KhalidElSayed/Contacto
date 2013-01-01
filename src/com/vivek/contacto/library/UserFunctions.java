@@ -30,6 +30,7 @@ public class UserFunctions {
 	private static String delete_tag = "delete";
 	private static String view_tag = "view";
 	private static String list_tag = "list";
+	private static String edit_tag = "edit";
 	
 	
 	// constructor
@@ -85,6 +86,21 @@ public class UserFunctions {
 	
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("action", add_tag));
+		params.add(new BasicNameValuePair("username", "testing"));
+		params.add(new BasicNameValuePair("c_fname", fname));
+		params.add(new BasicNameValuePair("c_lname", lname));
+		params.add(new BasicNameValuePair("n_mobile", mobile));
+		params.add(new BasicNameValuePair("n_home", home));
+		params.add(new BasicNameValuePair("n_office", office));
+		JSONObject json = jsonParser.getJSONFromUrl(URL, params);
+		
+		return json;
+	}
+	public JSONObject editcontact(String id, String fname, String lname, String mobile, String home, String office ){
+		
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
+		params.add(new BasicNameValuePair("action", edit_tag));
+		params.add(new BasicNameValuePair("id", id));
 		params.add(new BasicNameValuePair("username", "testing"));
 		params.add(new BasicNameValuePair("c_fname", fname));
 		params.add(new BasicNameValuePair("c_lname", lname));
