@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -28,8 +29,9 @@ import com.vivek.contacto.library.UserFunctions;
 import com.vivek.contacto.library.checkconnection;
 
 public class ContactoMain extends ListActivity {
-	HashMap<String, String> allname;
+	
 	ArrayList<HashMap<String, String>> List_fill;
+	LinearLayout progresslayout;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,8 +39,8 @@ public class ContactoMain extends ListActivity {
 		
 		if(checkconnection.checkInternetConnection(this))
 		{
-			allname = new HashMap<String, String>();
 			List_fill = new ArrayList<HashMap<String, String>>();
+			progresslayout = (LinearLayout)findViewById(R.id.progesslayout);
 			
 			AsyncConnection getdata = new AsyncConnection();
 			getdata.execute();
@@ -76,7 +78,7 @@ public class ContactoMain extends ListActivity {
 		case R.id.additem:
 			Intent intent = new Intent(ContactoMain.this, addcontact.class);
 			startActivity(intent);
-			finish();
+			
 			return true;
             
          default:
@@ -87,21 +89,32 @@ public class ContactoMain extends ListActivity {
 	
 	private class AsyncConnection extends AsyncTask<Void, Void, Void>{
 		JSONArray JSary;
+		String fname,lname;
+		@Override
+		protected void onPreExecute() {
+			progresslayout.setVisibility(View.VISIBLE);
+		}
+
 		@Override
 		protected Void doInBackground(Void... arg0) {
 			UserFunctions user = new UserFunctions();
 			JSONObject JSob = user.alllist();
 			try {
 				JSary = JSob.getJSONArray("data");
+				List_fill.clear();
 				for(int i=0; i<JSary.length(); i++){
 					JSONObject newob = JSary.getJSONObject(i);
-					String fname = newob.getString("c_fname");
-					String lname = newob.getString("c_lname");
-									
-					allname.put("fname", fname);
-					allname.put("lname", lname);
+					try{
+						fname= newob.getString("c_fname");
+						lname = newob.getString("c_lname");
+					}catch(JSONException e){
+						e.printStackTrace();
+					}
+					HashMap<String, String> c_details = new HashMap<String, String>();
+					c_details.put("fname", fname);
+					c_details.put("lname", lname);
 						
-					List_fill.add(allname);
+					List_fill.add(c_details);
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -112,6 +125,7 @@ public class ContactoMain extends ListActivity {
 
 		@Override
 		protected void onPostExecute(Void result) {
+			progresslayout.setVisibility(View.GONE);
 			ListAdapter adapter = new SimpleAdapter(ContactoMain.this, List_fill, R.layout.listing,new String[]{"fname","lname"},new int[]{R.id.fnamelist, R.id.lnamelist});
 			setListAdapter(adapter);
 			ListView listview = getListView();

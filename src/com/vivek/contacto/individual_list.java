@@ -38,27 +38,27 @@ public class individual_list extends Activity {
 		on= (TextView)findViewById(R.id.INDIVIDUAL_officenum);
 
 		if(checkconnection.checkInternetConnection(this)){
-			Intent intent = getIntent();
+			Bundle intent = getIntent().getExtras();
 			if(intent!=null){
-				if(intent.getStringExtra("fname")!=null){
-					fname = intent.getStringExtra("fname");
-					if(intent.getStringExtra("lname")!=null){
-						lname = intent.getStringExtra("lname");
+				if(intent.getString("fname")!=null){
+					fname = intent.getString("fname");
+					if(intent.getString("lname")!=null){
+						lname = intent.getString("lname");
 						actionbar.setTitle(fname+" "+lname);
 					}else{
 						actionbar.setTitle(fname);
 					}
 				}
-				if(intent.getStringExtra("nhome")!=null){
-					home = intent.getStringExtra("nhome");
+				if(intent.getString("nhome")!=null){
+					home = intent.getString("nhome");
 				}
-				if(intent.getStringExtra("n_mobile")!=null){
-					mobile = intent.getStringExtra("n_mobile");
+				if(intent.getString("n_mobile")!=null){
+					mobile = intent.getString("n_mobile");
 				}
-				if(intent.getStringExtra("n_office")!=null){
-					office = intent.getStringExtra("n_office");
+				if(intent.getString("n_office")!=null){
+					office = intent.getString("n_office");
 				}
-				id=intent.getStringExtra("id");
+				id=intent.getString("id");
 				hn.setText(home);
 				mn.setText(mobile);
 				on.setText(office);
@@ -110,15 +110,13 @@ public class individual_list extends Activity {
 		
 		case R.id.edititme:
 			Intent edit_intent = new Intent(individual_list.this, addcontact.class);
-			edit_intent.putExtra("fname", fname);
-			edit_intent.putExtra("lname", lname);
-			edit_intent.putExtra("mobile", mobile);
-			edit_intent.putExtra("home", home);
-			edit_intent.putExtra("office", office);
-			edit_intent.putExtra("id", id);
+				edit_intent.putExtra("fname", fname);
+				edit_intent.putExtra("lname", lname);
+				edit_intent.putExtra("mobile", mobile);
+				edit_intent.putExtra("home", home);
+				edit_intent.putExtra("office", office);
+				edit_intent.putExtra("id", id);
 			startActivity(edit_intent);
-			
-			Toast.makeText(getApplicationContext(), "item needs to be edited", Toast.LENGTH_SHORT).show();
 			return true;
 			
 		default:
@@ -138,7 +136,6 @@ public class individual_list extends Activity {
 			try {
 				res = jsob.getString("res");
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return null;

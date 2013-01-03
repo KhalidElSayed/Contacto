@@ -40,17 +40,20 @@ public class addcontact extends Activity {
 			home = (EditText) findViewById(R.id.AD_Homeno);
 			office = (EditText) findViewById(R.id.AD_Officeno);
 			
-			Intent intent = getIntent();
+			Bundle intent = getIntent().getExtras();
 			if(intent!=null){
-				fname.setText(intent.getStringExtra("fname"));
-				lname.setText(intent.getStringExtra("lname"));
-				mobile.setText(intent.getStringExtra("mobile"));
-				home.setText(intent.getStringExtra("home"));
-				office.setText(intent.getStringExtra("office"));
-				id = intent.getStringExtra("id");
-				
+				fname.setText(intent.getString("fname"));
+				lname.setText(intent.getString("lname"));
+				mobile.setText(intent.getString("mobile"));
+				home.setText(intent.getString("home"));
+				office.setText(intent.getString("office"));
+				id = intent.getString("id");
 				flag = "edit";
+				actionbar.setTitle("Edit Contact");
 				
+			}else{
+				flag = "add";
+				Toast.makeText(getApplicationContext(), "we are in add page", Toast.LENGTH_SHORT).show();
 			}
 			Button done = (Button) findViewById(R.id.done);
 			
@@ -109,10 +112,12 @@ public class addcontact extends Activity {
 		@Override
 		protected Void doInBackground(Void... params) {
 			UserFunctions user = new UserFunctions();
+			
 			if(flag.equalsIgnoreCase("edit")){
 				 JSob = user.editcontact(id, fname.getText().toString(), lname.getText().toString(), mobile.getText().toString(), home.getText().toString(), office.getText().toString());
 				
 			}else{
+				
 				JSob = user.addcontact(fname.getText().toString(), lname.getText().toString(), mobile.getText().toString(), home.getText().toString(), office.getText().toString());
 			}
 			try {
