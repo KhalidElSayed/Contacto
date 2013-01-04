@@ -53,7 +53,6 @@ public class addcontact extends Activity {
 				
 			}else{
 				flag = "add";
-				Toast.makeText(getApplicationContext(), "we are in add page", Toast.LENGTH_SHORT).show();
 			}
 			Button done = (Button) findViewById(R.id.done);
 			
@@ -98,7 +97,6 @@ public class addcontact extends Activity {
 			Intent intent = new Intent(this, ContactoMain.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
-            finish();
             return true;
        
         default:

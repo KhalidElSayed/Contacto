@@ -100,8 +100,8 @@ public class individual_list extends Activity {
 		{
 		case android.R.id.home:
 			Intent intent = new Intent(individual_list.this, ContactoMain.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
-			finish();
 			return true;
 		case R.id.deleteitme:
 			AsyncConnection connection = new AsyncConnection();
@@ -116,6 +116,7 @@ public class individual_list extends Activity {
 				edit_intent.putExtra("home", home);
 				edit_intent.putExtra("office", office);
 				edit_intent.putExtra("id", id);
+				edit_intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(edit_intent);
 			return true;
 			
@@ -144,6 +145,7 @@ public class individual_list extends Activity {
 		protected void onPostExecute(Void result) {
 			Toast.makeText(getApplicationContext(),res+" Deleting", Toast.LENGTH_SHORT).show();
 			Intent intent = new Intent(individual_list.this, ContactoMain.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intent);
 			
 		}
